@@ -18,7 +18,7 @@ import { Link } from "react-router"
 
 const navigationLinks = [
   { href: "/", label: "Home", },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ]
 

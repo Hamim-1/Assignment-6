@@ -1,5 +1,5 @@
 
-import Features from '@/components/modules/Features';
+import Features from '@/components/modules/home/Features';
 import Hero from './../components/modules/home/Hero';
 import HowItWork from '@/components/modules/home/HowItWork';
 

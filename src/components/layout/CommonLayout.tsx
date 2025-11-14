@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
-
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 interface IProps {
     children: ReactNode
@@ -9,11 +10,11 @@ interface IProps {
 const CommonLayout = ({ children }: IProps) => {
     return (
         <div className="flex flex-col min-h-screen">
-            This is a react app
+            <Navbar />
             <div className="grow">
-
                 {children}
             </div>
+            <Footer />
         </div>
     );
 };

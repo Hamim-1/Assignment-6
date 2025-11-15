@@ -38,7 +38,7 @@ interface IParcel {
     }>;
 }
 
-const AdminDashboard2 = () => {
+const AdminDashboardContent = () => {
     const [activeTab, setActiveTab] = useState<'users' | 'parcels'>('users');
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('ALL');
@@ -114,12 +114,7 @@ const AdminDashboard2 = () => {
     return (
         <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
             <Toaster />
-            <div className="max-w-7xl mx-auto">
-
-                <div className="mb-6 sm:mb-8">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">Admin Dashboard</h1>
-                    <p className="text-sm sm:text-base text-gray-600 mt-1">Manage users and parcels</p>
-                </div>
+            <div>
 
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -527,4 +522,4 @@ const AdminDashboard2 = () => {
     );
 };
 
-export default AdminDashboard2;
+export default AdminDashboardContent;

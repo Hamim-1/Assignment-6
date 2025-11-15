@@ -20,11 +20,10 @@ const LoginForm = () => {
         } else {
             try {
                 const data = await login(form).unwrap();
-                console.log(data);
 
                 toast.success("Log In successfully!");
                 const role = (data.data.user.role as string).toLowerCase();
-                navigate(`/${role}/dashboard`)
+                navigate(`/dashboard/${role}`)
                 setForm({ email: "", password: "" })
 
             } catch (error: unknown) {
@@ -33,7 +32,6 @@ const LoginForm = () => {
                     (error as any)?.message ||
                     "Something went wrong!";
                 toast.error(errMsg);
-                console.log(error);
 
             }
         }

@@ -13,7 +13,6 @@ const Stats = () => {
         delivered: data?.data?.filter((p: any) => p.status === "DELIVERED").length || 0,
         canceled: data?.data?.filter((p: any) => p.status === "CANCELED").length || 0,
     };
-    console.log(data, isLoading, isError);
 
 
     if (isLoading) {

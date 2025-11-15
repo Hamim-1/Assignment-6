@@ -4,6 +4,7 @@ import AdminDashboard from "@/pages/admin/AdminDashboard";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import NotFound from "@/pages/NotFound";
 import ReceiverDashboard from "@/pages/receiver/ReceiverDashboard";
 import Register from "@/pages/Register";
 import SenderDashboard from "@/pages/sender/SenderDashboard";
@@ -41,14 +42,18 @@ export const router = createBrowserRouter([
     },
     {
         Component: SenderDashboard,
-        path: "/sender/dashboard"
+        path: "/dashboard/sender"
     },
     {
         Component: ReceiverDashboard,
-        path: "/receiver/dashboard"
+        path: "/dashboard/receiver"
     },
     {
         Component: AdminDashboard,
-        path: "/admin/dashboard"
+        path: "/dashboard/admin"
     },
+    {
+        Component: NotFound,
+        path: "*"
+    }
 ])

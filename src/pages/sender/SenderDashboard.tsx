@@ -7,12 +7,11 @@ import { setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { Navigate } from "react-router";
 
 
 const SenderDashboard = () => {
     const { user } = useAppSelector((state) => state.auth);
-    const navigate = useNavigate();
     const { data, isLoading, isError, isSuccess } = useGetMeQuery(undefined, {
         skip: !!user
     });
@@ -26,14 +25,12 @@ const SenderDashboard = () => {
     }, [isSuccess, data, user, dispatch]);
 
 
-    useEffect(() => {
-        if (!isLoading && isError) {
-            navigate("/");
-        }
-    }, [isLoading, isError, navigate]);
-
-
     if (isLoading) return <h2>Loading...</h2>;
+
+
+    if (isError || (user && user.role !== "SENDER")) {
+        return <Navigate to="/" replace />;
+    }
     return (
         <div className="min-h-screen">
             <Toaster position="top-center" />

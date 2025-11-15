@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 const LoginForm = () => {
     const [login, { isLoading }] = useLoginMutation();
     const navigate = useNavigate();
-    const [form, setForm] = useState({ email: "receiver@gmail.com", password: "Pass123!" });
+    const [form, setForm] = useState({ email: "", password: "" });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });

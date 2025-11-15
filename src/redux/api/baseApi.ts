@@ -52,8 +52,20 @@ export const baseApi = createApi({
             }),
             invalidatesTags: ['Parcels'],
         }),
+        confirmParcel: builder.mutation({
+            query: (id) => ({
+                url: `/parcels/${id}/confirm`,
+                method: "PATCH",
+            }),
+            invalidatesTags: ['Parcels'],
+        }),
+        getIncomingParcels: builder.query({
+            query: () => ({
+                url: `/parcels/incoming`,
+            }),
+        }),
 
     })
 })
 
-export const { useLoginMutation, useRegisterMutation, useCreateParcelMutation, useLogoutMutation, useGetMeQuery, useGetMyParcelsQuery, useCancleParcelMutation } = baseApi;
+export const { useLoginMutation, useRegisterMutation, useCreateParcelMutation, useLogoutMutation, useGetMeQuery, useGetMyParcelsQuery, useCancleParcelMutation, useGetIncomingParcelsQuery, useConfirmParcelMutation } = baseApi;

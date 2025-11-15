@@ -4,7 +4,7 @@ import { CheckCircle, Clock, MapPin, Package, XCircle } from "lucide-react";
 const Stats = () => {
     const { data, isLoading, isError } = useGetMyParcelsQuery(undefined);
 
-    // Calculate stats from the parcels data
+
     const stats = {
         total: data?.data?.length || 0,
         requested: data?.data?.filter((p: any) => p.status === "REQUESTED").length || 0,
@@ -13,6 +13,8 @@ const Stats = () => {
         delivered: data?.data?.filter((p: any) => p.status === "DELIVERED").length || 0,
         canceled: data?.data?.filter((p: any) => p.status === "CANCELED").length || 0,
     };
+    console.log(data, isLoading, isError);
+
 
     if (isLoading) {
         return (

@@ -3,9 +3,11 @@ import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
+import ReceiverDashboard from "@/pages/receiver/ReceiverDashboard";
 import Register from "@/pages/Register";
 import SenderDashboard from "@/pages/sender/SenderDashboard";
 import { createBrowserRouter } from "react-router";
+
 
 export const router = createBrowserRouter([
     {
@@ -39,5 +41,9 @@ export const router = createBrowserRouter([
     {
         Component: SenderDashboard,
         path: "/sender/dashboard"
+    },
+    {
+        Component: ReceiverDashboard,
+        path: "/receiver/dashboard"
     },
 ])

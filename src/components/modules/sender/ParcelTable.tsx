@@ -12,8 +12,6 @@ const ParcelTable = () => {
         parcels = data.data;
     }
     const handleCancelParcel = async (id: string) => {
-        console.log(id);
-
         try {
             await cancelParcel(id).unwrap();
             toast.success("Parcel Canceled Succesfully!");

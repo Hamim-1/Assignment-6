@@ -1,5 +1,6 @@
 import App from "@/App";
 import About from "@/pages/About";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
@@ -45,5 +46,9 @@ export const router = createBrowserRouter([
     {
         Component: ReceiverDashboard,
         path: "/receiver/dashboard"
+    },
+    {
+        Component: AdminDashboard,
+        path: "/admin/dashboard"
     },
 ])

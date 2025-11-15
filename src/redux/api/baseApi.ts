@@ -7,7 +7,7 @@ export const baseApi = createApi({
         baseUrl: 'http://localhost:5000/api/v1',
         credentials: "include"
     }),
-    tagTypes: ["Parcels"],
+    tagTypes: ["Parcels", "Users"],
     refetchOnReconnect: true,
     endpoints: (builder) => ({
         login: builder.mutation({
@@ -41,6 +41,12 @@ export const baseApi = createApi({
         getMe: builder.query({
             query: () => "/auth/me",
         }),
+        getAllParcels: builder.query({
+            query: () => "/parcels",
+        }),
+        getAllUsers: builder.query({
+            query: () => "/users",
+        }),
         getMyParcels: builder.query({
             query: () => "/parcels/me",
             providesTags: ["Parcels"]
@@ -59,6 +65,22 @@ export const baseApi = createApi({
             }),
             invalidatesTags: ['Parcels'],
         }),
+        updateUserStatus: builder.mutation({
+            query: (payload) => ({
+                url: `/users/${payload.id}/status`,
+                method: "PATCH",
+                body: payload
+            }),
+            invalidatesTags: ['Users'],
+        }),
+        updateParcelStatus: builder.mutation({
+            query: (payload) => ({
+                url: `/parcels/${payload.id}/status`,
+                method: "PATCH",
+                body: payload
+            }),
+            invalidatesTags: ['Parcels'],
+        }),
         getIncomingParcels: builder.query({
             query: () => ({
                 url: `/parcels/incoming`,
@@ -68,4 +90,4 @@ export const baseApi = createApi({
     })
 })
 
-export const { useLoginMutation, useRegisterMutation, useCreateParcelMutation, useLogoutMutation, useGetMeQuery, useGetMyParcelsQuery, useCancleParcelMutation, useGetIncomingParcelsQuery, useConfirmParcelMutation } = baseApi;
+export const { useLoginMutation, useRegisterMutation, useCreateParcelMutation, useLogoutMutation, useGetMeQuery, useGetMyParcelsQuery, useCancleParcelMutation, useGetIncomingParcelsQuery, useConfirmParcelMutation, useGetAllParcelsQuery, useGetAllUsersQuery, useUpdateUserStatusMutation, useUpdateParcelStatusMutation } = baseApi;

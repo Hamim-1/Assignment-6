@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const ParcelTable = () => {
 
     const { data, isLoading, isError } = useGetMyParcelsQuery(undefined);
-    const [cancelParcel, { isLoading: isUpdating }] = useCancleParcelMutation();
+    const [cancelParcel] = useCancleParcelMutation();
 
     let parcels = [];
     if (data) {

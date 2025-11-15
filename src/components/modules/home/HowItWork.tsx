@@ -2,7 +2,6 @@ import trackImg from "@/assets/images/track-parcel.png"
 import deliveryImg from "@/assets/images/deliver-parcel.png"
 import pickImg from "@/assets/images/pick-parcel.png"
 import { Link } from "react-router";
-import { reverse } from "dns";
 
 const HowItWork = () => {
     const howItWorkSteps = [

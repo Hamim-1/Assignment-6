@@ -26,12 +26,16 @@ const ReceiverParcels = () => {
     const { data, isLoading } = useGetIncomingParcelsQuery(undefined);
     const [selectedParcel, setSelectedParcel] = useState<IParcel | null>(null);
     const [activeTab, setActiveTab] = useState<'incoming' | 'history'>('incoming');
-    const [confirmParcel, { isLoading: isUpdating }] = useConfirmParcelMutation();
+    const [confirmParcel] = useConfirmParcelMutation();
     const allParcels = data?.data || [];
 
     const incomingParcels = allParcels.filter((p: IParcel) =>
         p.status !== 'DELIVERED' && p.status !== 'CANCELED'
     );
+    if (selectedParcel) {
+        console.log(1);
+
+    }
 
     const deliveryHistory = allParcels.filter((p: IParcel) =>
         p.status === 'DELIVERED' || p.status === 'CANCELED'

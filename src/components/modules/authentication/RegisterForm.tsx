@@ -7,7 +7,7 @@ import { IRegisterForm } from "@/types/register.types";
 import { validateRegister } from "@/utils/validation/registerValidation";
 
 const RegisterForm = () => {
-    const [register, { isLoading }] = useRegisterMutation();
+    const [register] = useRegisterMutation();
     const [form, setForm] = useState<IRegisterForm>({
         name: "",
         email: "",

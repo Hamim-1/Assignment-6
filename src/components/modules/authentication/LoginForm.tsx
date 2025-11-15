@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
-    const [login, { isLoading }] = useLoginMutation();
+    const [login] = useLoginMutation();
     const navigate = useNavigate();
     const [form, setForm] = useState({ email: "", password: "" });
 

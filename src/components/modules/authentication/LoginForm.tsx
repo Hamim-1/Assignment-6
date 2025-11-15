@@ -1,12 +1,13 @@
 import loginImg from "@/assets/images/login.avif";
 import { useLoginMutation } from "@/redux/api/baseApi";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
     const [login, { isLoading }] = useLoginMutation();
-    const [form, setForm] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
+    const [form, setForm] = useState({ email: "receiver@gmail.com", password: "Pass123!" });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,7 +20,11 @@ const LoginForm = () => {
         } else {
             try {
                 const data = await login(form).unwrap();
+                console.log(data);
+
                 toast.success("Log In successfully!");
+                const role = (data.data.user.role as string).toLowerCase();
+                navigate(`/${role}/dashboard`)
                 setForm({ email: "", password: "" })
 
             } catch (error: unknown) {

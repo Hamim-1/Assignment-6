@@ -4,6 +4,7 @@ import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import SenderDashboard from "@/pages/sender/SenderDashboard";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -34,5 +35,9 @@ export const router = createBrowserRouter([
     {
         Component: Register,
         path: "/register"
+    },
+    {
+        Component: SenderDashboard,
+        path: "/sender/dashboard"
     },
 ])

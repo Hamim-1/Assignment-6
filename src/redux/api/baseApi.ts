@@ -1,9 +1,10 @@
+import { config } from '@/config';
 import { createApi, fetchBaseQuery, } from '@reduxjs/toolkit/query/react';
 
 export const baseApi = createApi({
     reducerPath: "baseApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://assignment-5-ivory-phi.vercel.app/api/v1',
+        baseUrl: config.baseUrl,
         credentials: "include"
     }),
     tagTypes: ["Parcels", "Users"],
